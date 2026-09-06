@@ -1,0 +1,49 @@
+# Repository formatting conventions. Format touched lines only.
+# Anonymous namespaces use four-space indentation; named namespaces do not.
+# clang-format cannot express that distinction, and may repack manually split arguments.
+# Comment reflow is disabled because Hangul display width reaches the column limit
+# sooner than Latin text and automatic wrapping obscures intentional comment edits.
+BasedOnStyle: Microsoft
+Language: Cpp
+Standard: c++20
+
+IndentWidth: 4
+ContinuationIndentWidth: 4
+UseTab: Never
+ColumnLimit: 100
+
+BreakBeforeBraces: Allman
+NamespaceIndentation: None
+IndentCaseLabels: false
+AccessModifierOffset: -4
+
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+# Headers keep one-line getters ({ return mValue; }) and short lambdas inline.
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortLambdasOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# Include order is curated by hand (pch first, own header, engine groups, std last
+# in some files and first in others) — clang-format must not reshuffle it.
+SortIncludes: Never
+
+# The repository closes namespaces with a bare brace, not "} // namespace".
+FixNamespaceComments: false
+
+# Reasoning in the header comment: Hangul is two columns wide, so doc comments cross the
+# limit long before code does.
+ReflowComments: false
+
+AlignAfterOpenBracket: DontAlign
+BinPackArguments: true
+BinPackParameters: true
+BreakConstructorInitializers: BeforeComma
+PackConstructorInitializers: Never
+EmptyLineBeforeAccessModifier: LogicalBlock
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+SpaceAfterTemplateKeyword: true
+Cpp11BracedListStyle: false

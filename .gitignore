@@ -1,0 +1,14 @@
+/Content/
+/build/
+/Builds/
+/out/
+/x64*/
+/.vs/
+/.idea/
+/.cache/
+/.agents/
+/.codex/
+/.claude/
+/CMakeUserPresets.json
+*.user
+*.suo
